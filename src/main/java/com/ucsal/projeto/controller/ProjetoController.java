@@ -21,12 +21,13 @@ public class ProjetoController {
     @Autowired
     private ProjetoService projetoService;
 
-    @Autowired // Repositório injetado para operações simples de leitura
+    @Autowired
     private ProjetoRepository projetoRepository;
 
     @PostMapping("/solicitar")
     public ResponseEntity<?> solicitarProjeto(@RequestBody Projeto projeto,
                                               @AuthenticationPrincipal UserDetails userDetails) {
+
         try {
             String professorEmail = userDetails.getUsername();
 
